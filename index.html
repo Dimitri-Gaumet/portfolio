@@ -1,0 +1,614 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Journalistique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header .tagline {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #764ba2;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .profile-image {
+            text-align: center;
+        }
+
+        .profile-image img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-item h3 {
+            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .role {
+            color: #764ba2;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .date {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .experience-item p {
+            color: #555;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid #f0f0f0;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 180px;
+            background-color: #f0f0f0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-image.no-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-content h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #333;
+            line-height: 1.3;
+            min-height: 50px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .article-tag {
+            background-color: #f0f0f0;
+            color: #667eea;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .article-content p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .read-more {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        .read-more:hover {
+            opacity: 0.9;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: flex-start;
+            padding-top: 50px;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 800px;
+            width: 90%;
+            margin: 0 auto 50px;
+            border-radius: 8px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-image.no-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4em;
+        }
+
+        .modal h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .modal-description {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .media-section {
+            margin-bottom: 20px;
+        }
+
+        .media-section h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .file-link {
+            display: inline-block;
+            background-color: #f5f5f5;
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 500;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .file-link:hover {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .contact-link:hover {
+            background-color: #667eea;
+            color: white;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .modal-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Votre Nom</h1>
+        <p class="tagline">Journaliste | Portfolio</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#experience">Expériences</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>À propos</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Bienvenue</h3>
+                    <p>
+                        Je suis [VOTRE NOM], étudiant(e) en journalisme passionné(e) par [VOS SUJETS].
+                    </p>
+                    <p>
+                        À travers mes articles et reportages, j'explore des thématiques variées. Je suis actuellement en recherche de stage pour approfondir mes compétences journalistiques.
+                    </p>
+                </div>
+                <div class="profile-image">
+                    <div style="width: 250px; height: 250px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 4em; margin: 0 auto;">📷</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Expériences & Formation</h2>
+            
+            <div class="experience-item">
+                <h3>Formation</h3>
+                <div class="role">Études en Journalisme</div>
+                <div class="date">2022 - Présent</div>
+                <p>
+                    [NOM DE VOTRE ÉCOLE] - Décrivez votre formation et vos compétences.
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Expérience 1</h3>
+                <div class="role">Stage / Contribution</div>
+                <div class="date">Dates</div>
+                <p>
+                    Description de votre expérience, projets réalisés, compétences développées.
+                </p>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2>Mes Articles</h2>
+            <div class="portfolio-grid" id="portfolio-grid"></div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p style="text-align: center; margin-bottom: 20px;">
+                Intéressé(e) par mon travail ? Contactez-moi !
+            </p>
+            <div class="contact-links">
+                <a href="mailto:votre.email@example.com" class="contact-link">
+                    ✉️ Email
+                </a>
+                <a href="https://linkedin.com/in/votre-profil" target="_blank" class="contact-link">
+                    💼 LinkedIn
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 - Portfolio Journalistique</p>
+    </footer>
+
+    <div id="article-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-image" id="modal-image"></div>
+            <h2 id="modal-title"></h2>
+            <div class="modal-meta">
+                <span id="modal-date"></span>
+                <span id="modal-category"></span>
+            </div>
+            <div class="modal-description" id="modal-description"></div>
+            <div id="modal-media"></div>
+        </div>
+    </div>
+
+    <script>
+        const articles = [
+            {
+                id: 1,
+                title: "Titre de votre premier article",
+                category: "Reportage",
+                date: "Janvier 2024",
+                description: "Courte description de l'article...",
+                fullDescription: "Description complète de votre article, le contexte, vos recherches, etc.",
+                image: null,
+                files: [
+                    { name: "Lire l'article (PDF)", url: "articles/article1.pdf" }
+                ]
+            },
+            {
+                id: 2,
+                title: "Titre de votre deuxième article",
+                category: "Investigation",
+                date: "Décembre 2023",
+                description: "Courte description...",
+                fullDescription: "Description complète...",
+                image: null,
+                files: [
+                    { name: "Lire l'article (PDF)", url: "articles/article2.pdf" }
+                ]
+            }
+        ];
+
+        function displayArticles() {
+            const grid = document.getElementById('portfolio-grid');
+            articles.forEach(article => {
+                const card = document.createElement('div');
+                card.className = 'article-card';
+                card.onclick = () => openModal(article.id);
+
+                card.innerHTML = `
+                    <div class="article-image no-image">📄</div>
+                    <div class="article-content">
+                        <h3>${article.title}</h3>
+                        <div class="article-meta">
+                            <span class="article-tag">${article.category}</span>
+                            <span class="article-tag">${article.date}</span>
+                        </div>
+                        <p>${article.description}</p>
+                        <a href="#" class="read-more">Lire plus →</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openModal(id) {
+            const article = articles.find(a => a.id === id);
+            if (!article) return;
+
+            document.getElementById('modal-title').textContent = article.title;
+            document.getElementById('modal-date').textContent = article.date;
+            document.getElementById('modal-category').textContent = article.category;
+            document.getElementById('modal-description').textContent = article.fullDescription;
+
+            const modalImage = document.getElementById('modal-image');
+            modalImage.className = 'modal-image no-image';
+            modalImage.innerHTML = '📄';
+
+            let mediaHTML = '<div class="media-section"><h4>📎 Fichiers</h4>';
+            article.files.forEach(file => {
+                mediaHTML += `<a href="${file.url}" target="_blank" class="file-link">📄 ${file.name}</a>`;
+            });
+            mediaHTML += '</div>';
+
+            document.getElementById('modal-media').innerHTML = mediaHTML;
+            document.getElementById('article-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('article-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('article-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        displayArticles();
+    </script>
+</body>
+</html>
