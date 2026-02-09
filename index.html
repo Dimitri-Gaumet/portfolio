@@ -549,38 +549,37 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
         </div>
     </div>
 
-    <script>
-        const articles = [
-            {
-                id: 1,
-                title: "En Roumanie, Călin Georgescu, symbole ou cause d’une démocratie fragilisée ?",
-                category: "Reportage",
-                date: "Janvier - Mars 2024",
-                description: "Lors des élections présidentielles de 2024 en Roumanie, le scrutin a été émaillé d'accusations d'ingérences et plusieurs manifestations ont éclaté dans tout le pays.",
-                fullDescription: "J'ai eu l'opportunité de réaliser une mobilité Erasmus en Roumanie durant le premier semestre de l'année scolaire 2024-2025. J'en ait profité pour réaliser un reportage lors des élections prséidentielles. J'ai utilisé cet article pour le concours d'entrée à Sciences Po Toulouse.",
-               image Caption: Călin Georgescu dans un bureau de vote lors des secondes élections nationales roumaines de mai 2025. 
-               image Credit: AUR Alianța pentru Unirea Românilor
-                image: Călin_Georgescu_18.5.2025.jpg,
-                files: [
-                    { name: "Lire l'article (PDF)", url: "ReportageToulousev2.pdf" }
-                ]
-            },
-            {
-                id: 2,
-                title: "En Ariège, une union précaire autour du gypaète barbu",
-                category: "Reportage",
-                date: "Octobre 2025",
-                description: "En Ariège, le gypaète barbu, plus grand rapace d'Europe signe un retour encourageant. Mais cette préservation repose sur une union fragile entre les différents acteurs de la montagne. ",
-                fullDescription: "Pour mon cours de journalisme environnemental, je devais réaliser un reportage en lien avec la nature. J'étais libre sur le choix du sujet et j'ai choisi de travailler sur une espèce emblématique des Pyrénées avec mon camarade de classe. Nous sommes donc allés à Tarascon-sur-Ariège pour observer cette espèce et rencontrer des interlocuteurs qualifiés sur le sujet.",
-               imageCaption: Le gypaète, plus grand rapace d'Europe est un charognard se nourrissant exclusivement d'os. 
-                   imageCredit : Crédit Raoul Feignoux
-               image: Gypaète.jpg,
-                files: [
-                    { name: "Lire l'article (PDF)", url: "reportage gypaète barbu.pdf" }
-                ]
-            }
-        ];
-
+   <script>
+    const articles = [
+        {
+            id: 1,
+            title: "En Roumanie, Călin Georgescu, symbole ou cause d'une démocratie fragilisée ?",
+            category: "Reportage",
+            date: "Janvier - Mars 2024",
+            description: "Lors des élections présidentielles de 2024 en Roumanie, le scrutin a été émaillé d'accusations d'ingérences et plusieurs manifestations ont éclaté dans tout le pays.",
+            fullDescription: "J'ai eu l'opportunité de réaliser une mobilité Erasmus en Roumanie durant le premier semestre de l'année scolaire 2024-2025. J'en ai profité pour réaliser un reportage lors des élections présidentielles. J'ai utilisé cet article pour le concours d'entrée à Sciences Po Toulouse.",
+            image: "Călin_Georgescu_18.5.2025.jpg",
+            imageCaption: "Călin Georgescu dans un bureau de vote lors des secondes élections nationales roumaines de mai 2025.",
+            imageCredit: "© AUR Alianța pentru Unirea Românilor",
+            files: [
+                { name: "Lire l'article (PDF)", url: "ReportageToulousev2.pdf" }
+            ]
+        },
+        {
+            id: 2,
+            title: "En Ariège, une union précaire autour du gypaète barbu",
+            category: "Reportage",
+            date: "Octobre 2025",
+            description: "En Ariège, le gypaète barbu, plus grand rapace d'Europe signe un retour encourageant. Mais cette préservation repose sur une union fragile entre les différents acteurs de la montagne.",
+            fullDescription: "Pour mon cours de journalisme environnemental, je devais réaliser un reportage en lien avec la nature. J'étais libre sur le choix du sujet et j'ai choisi de travailler sur une espèce emblématique des Pyrénées avec mon camarade de classe. Nous sommes donc allés à Tarascon-sur-Ariège pour observer cette espèce et rencontrer des interlocuteurs qualifiés sur le sujet.",
+            image: "Gypaète.jpg",
+            imageCaption: "Le gypaète, plus grand rapace d'Europe est un charognard se nourrissant exclusivement d'os.",
+            imageCredit: "© Raoul Feignoux",
+            files: [
+                { name: "Lire l'article (PDF)", url: "reportage gypaète barbu.pdf" }
+            ]
+        }
+    ];
         function displayArticles() {
             const grid = document.getElementById('portfolio-grid');
             articles.forEach(article => {
