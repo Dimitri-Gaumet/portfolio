@@ -604,9 +604,26 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
             document.getElementById('modal-description').textContent = article.fullDescription;
 
             const modalImage = document.getElementById('modal-image');
-            modalImage.className = 'modal-image no-image';
-            modalImage.innerHTML = '📄';
-
+if (article.image) {
+    let imageHTML = `<img src="${article.image}" alt="${article.title}">`;
+    
+    if (article.imageCaption || article.imageCredit) {
+        imageHTML += '<div style="margin-top: 10px; font-size: 0.9em; color: #666;">';
+        if (article.imageCaption) {
+            imageHTML += `<p style="margin-bottom: 5px; font-style: italic;">${article.imageCaption}</p>`;
+        }
+        if (article.imageCredit) {
+            imageHTML += `<p style="font-size: 0.85em; color: #999;">${article.imageCredit}</p>`;
+        }
+        imageHTML += '</div>';
+    }
+    
+    modalImage.innerHTML = imageHTML;
+    modalImage.className = 'modal-image';
+} else {
+    modalImage.className = 'modal-image no-image';
+    modalImage.innerHTML = '📄';
+}
             let mediaHTML = '<div class="media-section"><h4>📎 Fichiers</h4>';
             article.files.forEach(file => {
                 mediaHTML += `<a href="${file.url}" target="_blank" class="file-link">📄 ${file.name}</a>`;
