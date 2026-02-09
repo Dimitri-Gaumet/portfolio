@@ -470,12 +470,11 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
                 <h3> Master journalisme</h3>
                 <div class="role">Sciences Po Toulouse</div>
                 <div class="date">2025 - Présent</div>
-                <p>
-                    Compétences : - Webjournalisme (Animation d'un site sur Wordpress) 
-                    - Journalisme radio & TV
-                    - Montage audio et vidéo 
-                    - Datajournalisme 
-                    - Journalisme presse écrite 
+                <p> - Webjournalisme (Animation d'un site sur Wordpress) </p>
+                <p> - Journalisme radio & TV </p>
+                <p>  - Montage audio et vidéo </p>
+                <p>  - Datajournalisme </p>
+                <p>   - Journalisme presse écrite </p>
                 </p>
             </div>
             <div class="experience-item">
@@ -493,9 +492,10 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
                 <h3>Master Médias & Société </h3>
                 <div class="role">Université de Bucarest</div>
                 <div class="date">Octobre 2024 - Février 2025</div>
-                <p>- Méthodes de recherche en sciences de la communication
-                    
-                </p>
+                <p>- Méthodes de recherche en sciences de la communication </p>
+                <p> - Création et animation d'un compte X sur l'environnement à Bucarest </p>
+                <p> - Création de plusieurs podcasts </p>
+             </p>
             </div>
 
             <div class="experience-item">
@@ -551,8 +551,22 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
 
    <script>
     const articles = [
-        {
+         {
             id: 1,
+            title: "En Ariège, une union précaire autour du gypaète barbu",
+            category: "Reportage",
+            date: "Octobre 2025",
+            description: "En Ariège, le gypaète barbu, plus grand rapace d'Europe signe un retour encourageant. Mais cette préservation repose sur une collaboration fragile entre les différents acteurs de la montagne.",
+            fullDescription: "Pour mon cours de journalisme environnemental, je devais réaliser un reportage en lien avec la nature. J'étais libre sur le choix du sujet et j'ai choisi de travailler sur une espèce emblématique des Pyrénées avec mon camarade de classe. Nous sommes donc allés à Tarascon-sur-Ariège pour observer cette espèce et rencontrer des interlocuteurs qualifiés sur le sujet.",
+            image: "Gypaète.jpg",
+            imageCaption: "Le gypaète, plus grand rapace d'Europe est un charognard se nourrissant exclusivement d'os.",
+            imageCredit: "© Raoul Feignoux",
+            files: [
+                { name: "Lire l'article (PDF)", url: "reportage gypaète barbu.pdf" }
+            ]
+        }
+        {
+            id: 2,
             title: "En Roumanie, Călin Georgescu, symbole ou cause d'une démocratie fragilisée ?",
             category: "Reportage",
             date: "Janvier - Mars 2024",
@@ -564,21 +578,7 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
             files: [
                 { name: "Lire l'article (PDF)", url: "ReportageToulousev2.pdf" }
             ]
-        },
-        {
-            id: 2,
-            title: "En Ariège, une union précaire autour du gypaète barbu",
-            category: "Reportage",
-            date: "Octobre 2025",
-            description: "En Ariège, le gypaète barbu, plus grand rapace d'Europe signe un retour encourageant. Mais cette préservation repose sur une union fragile entre les différents acteurs de la montagne.",
-            fullDescription: "Pour mon cours de journalisme environnemental, je devais réaliser un reportage en lien avec la nature. J'étais libre sur le choix du sujet et j'ai choisi de travailler sur une espèce emblématique des Pyrénées avec mon camarade de classe. Nous sommes donc allés à Tarascon-sur-Ariège pour observer cette espèce et rencontrer des interlocuteurs qualifiés sur le sujet.",
-            image: "Gypaète.jpg",
-            imageCaption: "Le gypaète, plus grand rapace d'Europe est un charognard se nourrissant exclusivement d'os.",
-            imageCredit: "© Raoul Feignoux",
-            files: [
-                { name: "Lire l'article (PDF)", url: "reportage gypaète barbu.pdf" }
-            ]
-        }
+        };
     ];
         function displayArticles() {
             const grid = document.getElementById('portfolio-grid');
