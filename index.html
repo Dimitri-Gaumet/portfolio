@@ -222,6 +222,36 @@
             font-weight: 500;
         }
 
+        .filter-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background-color: #f0f0f0;
+    color: #667eea;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.95em;
+}
+
+.filter-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.filter-btn.active {
+    background-color: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
         .article-content p {
             color: #666;
             font-size: 0.95em;
@@ -536,11 +566,19 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
             </div>
         </section>
 
-        <section id="portfolio">
-            <h2>Mes Articles</h2>
-            <div class="portfolio-grid" id="portfolio-grid"></div>
-        </section>
-
+       <section id="portfolio">
+    <h2>Mes Articles</h2>
+    
+  <div class="filter-buttons">
+    <button class="filter-btn active" onclick="filterArticles('tous')">Tous</button>
+    <button class="filter-btn" onclick="filterArticles('master')">Master</button>
+    <button class="filter-btn" onclick="filterArticles('licence')">Licence</button>
+    <button class="filter-btn" onclick="filterArticles('stage')">Stage</button>
+    <button class="filter-btn" onclick="filterArticles('personnel')">Écriture personnelle</button>
+</div>
+    
+    <div class="portfolio-grid" id="portfolio-grid"></div>
+</section>
         <section id="contact">
             <h2>Contact</h2>
             <p style="text-align: center; margin-bottom: 20px;">
@@ -650,6 +688,7 @@ const articles = [
     {
         id: 6,
         title: "Le jardin de l'Escargot errant ouvre ses portes à Thoste",
+        type : "Stage"
         category: "Reportage",
         date: "juin 2025",
         description: "Les Williams, couple d'expatrié anglais cherchent à partager leur oeuvre botanique à l'occasion des journées Rendez-vous aux jardins.",
@@ -676,14 +715,23 @@ const articles = [
         ]
     }
 ];
-    function displayArticles() {
+  let currentFilter = 'tous';
+
+function displayArticles(filter = 'tous') {
+    currentFilter = filter;
     const grid = document.getElementById('portfolio-grid');
-    articles.forEach(article => {
+    grid.innerHTML = ''; // Vider la grille
+    
+    // Filtrer les articles
+    const filteredArticles = filter === 'tous' 
+        ? articles 
+        : articles.filter(article => article.type === filter);
+    
+    filteredArticles.forEach(article => {
         const card = document.createElement('div');
         card.className = 'article-card';
         card.onclick = () => openModal(article.id);
         
-        // Afficher l'image si elle existe, sinon l'icône 📄
         let imageHTML = '';
         if (article.image) {
             imageHTML = `<div class="article-image"><img src="${article.image}" alt="${article.title}"></div>`;
@@ -705,6 +753,19 @@ const articles = [
         `;
         grid.appendChild(card);
     });
+}
+
+function filterArticles(type) {
+    // Retirer la classe active de tous les boutons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Ajouter la classe active au bouton cliqué
+    event.target.classList.add('active');
+    
+    // Afficher les articles filtrés
+    displayArticles(type);
 }
      function openModal(id) {
     // Supprimer l'ancienne légende si elle existe
