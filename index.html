@@ -297,6 +297,32 @@
             margin-bottom: 20px;
         }
 
+        .image-caption-box {
+    background-color: #f9f9f9;
+    border-left: 3px solid #667eea;
+    padding: 12px 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+.image-caption-box p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.image-caption-text {
+    font-style: italic;
+    color: #555;
+    font-size: 0.95em;
+    margin-bottom: 8px !important;
+}
+
+.image-credit-text {
+    font-size: 0.85em;
+    color: #999;
+    font-weight: 500;
+}
+
         .modal-image img {
             width: 100%;
             height: 100%;
@@ -608,7 +634,7 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
             ]
         }
     ];
-      function displayArticles() {
+    function displayArticles() {
     const grid = document.getElementById('portfolio-grid');
     articles.forEach(article => {
         const card = document.createElement('div');
@@ -638,46 +664,54 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
         grid.appendChild(card);
     });
 }
-        function openModal(id) {
-            const article = articles.find(a => a.id === id);
-            if (!article) return;
-
-            document.getElementById('modal-title').textContent = article.title;
-            document.getElementById('modal-date').textContent = article.date;
-            document.getElementById('modal-category').textContent = article.category;
-            document.getElementById('modal-description').textContent = article.fullDescription;
-
-            const modalImage = document.getElementById('modal-image');
-if (article.image) {
-    let imageHTML = `<img src="${article.image}" alt="${article.title}">`;
+     function openModal(id) {
+    // Supprimer l'ancienne légende si elle existe
+    const oldCaption = document.querySelector('.image-caption-box');
+    if (oldCaption) oldCaption.remove();
     
-    if (article.imageCaption || article.imageCredit) {
-        imageHTML += '<div style="margin-top: 10px; font-size: 0.9em; color: #666;">';
-        if (article.imageCaption) {
-            imageHTML += `<p style="margin-bottom: 5px; font-style: italic;">${article.imageCaption}</p>`;
+    const article = articles.find(a => a.id === id);
+    if (!article) return;
+
+    document.getElementById('modal-title').textContent = article.title;
+    document.getElementById('modal-date').textContent = article.date;
+    document.getElementById('modal-category').textContent = article.category;
+    document.getElementById('modal-description').textContent = article.fullDescription;
+
+    const modalImage = document.getElementById('modal-image');
+    if (article.image) {
+        let imageHTML = `<img src="${article.image}" alt="${article.title}">`;
+        modalImage.innerHTML = imageHTML;
+        modalImage.className = 'modal-image';
+        
+        // Ajouter légende et crédit dans une box visible
+        if (article.imageCaption || article.imageCredit) {
+            let captionHTML = '<div class="image-caption-box">';
+            if (article.imageCaption) {
+                captionHTML += `<p class="image-caption-text">${article.imageCaption}</p>`;
+            }
+            if (article.imageCredit) {
+                captionHTML += `<p class="image-credit-text">${article.imageCredit}</p>`;
+            }
+            captionHTML += '</div>';
+            
+            // Insérer après l'image
+            modalImage.insertAdjacentHTML('afterend', captionHTML);
         }
-        if (article.imageCredit) {
-            imageHTML += `<p style="font-size: 0.85em; color: #999;">${article.imageCredit}</p>`;
-        }
-        imageHTML += '</div>';
+    } else {
+        modalImage.className = 'modal-image no-image';
+        modalImage.innerHTML = '📄';
     }
     
-    modalImage.innerHTML = imageHTML;
-    modalImage.className = 'modal-image';
-} else {
-    modalImage.className = 'modal-image no-image';
-    modalImage.innerHTML = '📄';
-}
-            let mediaHTML = '<div class="media-section"><h4>📎 Fichiers</h4>';
-            article.files.forEach(file => {
-                mediaHTML += `<a href="${file.url}" target="_blank" class="file-link">📄 ${file.name}</a>`;
-            });
-            mediaHTML += '</div>';
+    let mediaHTML = '<div class="media-section"><h4>📎 Fichiers</h4>';
+    article.files.forEach(file => {
+        mediaHTML += `<a href="${file.url}" target="_blank" class="file-link">📄 ${file.name}</a>`;
+    });
+    mediaHTML += '</div>';
 
-            document.getElementById('modal-media').innerHTML = mediaHTML;
-            document.getElementById('article-modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+    document.getElementById('modal-media').innerHTML = mediaHTML;
+    document.getElementById('article-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
         function closeModal() {
             document.getElementById('article-modal').classList.remove('active');
