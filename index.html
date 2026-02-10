@@ -580,29 +580,36 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
             ]
         }
     ];
-        function displayArticles() {
-            const grid = document.getElementById('portfolio-grid');
-            articles.forEach(article => {
-                const card = document.createElement('div');
-                card.className = 'article-card';
-                card.onclick = () => openModal(article.id);
-
-                card.innerHTML = `
-                    <div class="article-image no-image">📄</div>
-                    <div class="article-content">
-                        <h3>${article.title}</h3>
-                        <div class="article-meta">
-                            <span class="article-tag">${article.category}</span>
-                            <span class="article-tag">${article.date}</span>
-                        </div>
-                        <p>${article.description}</p>
-                        <a href="#" class="read-more">Lire plus →</a>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
+      function displayArticles() {
+    const grid = document.getElementById('portfolio-grid');
+    articles.forEach(article => {
+        const card = document.createElement('div');
+        card.className = 'article-card';
+        card.onclick = () => openModal(article.id);
+        
+        // Afficher l'image si elle existe, sinon l'icône 📄
+        let imageHTML = '';
+        if (article.image) {
+            imageHTML = `<div class="article-image"><img src="${article.image}" alt="${article.title}"></div>`;
+        } else {
+            imageHTML = `<div class="article-image no-image">📄</div>`;
         }
-
+        
+        card.innerHTML = `
+            ${imageHTML}
+            <div class="article-content">
+                <h3>${article.title}</h3>
+                <div class="article-meta">
+                    <span class="article-tag">${article.category}</span>
+                    <span class="article-tag">${article.date}</span>
+                </div>
+                <p>${article.description}</p>
+                <a href="#" class="read-more">Lire plus →</a>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
         function openModal(id) {
             const article = articles.find(a => a.id === id);
             if (!article) return;
