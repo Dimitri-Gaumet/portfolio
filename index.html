@@ -179,11 +179,12 @@
             position: relative;
         }
 
-        .article-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+     .article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Affiche l'image entière sans la couper */
+    background-color: #f0f0f0;  /* Fond gris pour combler l'espace */
+}
 
         .article-image.no-image {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
