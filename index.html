@@ -726,7 +726,7 @@ const articles = [
         title: "En Roumanie, Călin Georgescu, symbole ou cause d'une démocratie fragilisée ?",
         category: "Reportage",
         type: "personnel",
-        date: "Janvier - Mars 2024",
+        date: "Janvier - Mars 2025",
         description: "Lors des élections présidentielles de 2024 en Roumanie, le scrutin a été émaillé d'accusations d'ingérences et plusieurs manifestations ont éclaté dans tout le pays.",
         fullDescription: "J'ai eu l'opportunité de réaliser une mobilité Erasmus en Roumanie durant le premier semestre de l'année scolaire 2024-2025. J'en ai profité pour réaliser un reportage lors des élections présidentielles. J'ai utilisé cet article pour le concours d'entrée à Sciences Po Toulouse.",
         image: "georgescu.jpg",
@@ -734,6 +734,22 @@ const articles = [
         imageCredit: "© AUR Alianța pentru Unirea Românilor",
         files: [
             { name: "Lire l'article (PDF)", url: "ReportageToulousev2.pdf" }
+        ]
+    }
+];
+        {
+        id: 9,
+        title: "La faim des haricots pour l'action solidaire ?",
+        category: "Reportage",
+        type: "licence",
+        date: "Mars 2024",
+        description: "Les associations d'aide alimentaire à Dijon font face à des difficultés croissantes dans un contexte de forte inflation.",
+        fullDescription: "Lors d'un cours de presse écrite en deuxième année de licence, je devais réaliser un reportage sur le thème de la solidarité. J'ai choisi de me concentrer sur l'aide alimentaire car en cette période, j'avais des difficultés à faire mes courses.",
+        image: "epicerie.jpg",
+        imageCaption: "Les épiceries solidaires dijonnaises alertent sur une baisse de l'engagement associatif.",
+        imageCredit: "© Syced",
+        files: [
+            { name: "Lire l'article (PDF)", url: "ReportageSolidarite.pdf" }
         ]
     }
 ];
@@ -827,12 +843,25 @@ function filterArticles(type) {
         modalImage.innerHTML = '📄';
     }
     
-    let mediaHTML = '<div class="media-section"><h4>📎 Fichiers</h4>';
+   let mediaHTML = '';
+
+// Fichiers PDF/DOCX
+if (article.files && article.files.length > 0) {
+    mediaHTML += '<div class="media-section"><h4>📎 Fichiers</h4>';
     article.files.forEach(file => {
         mediaHTML += `<a href="${file.url}" target="_blank" class="file-link">📄 ${file.name}</a>`;
     });
     mediaHTML += '</div>';
+}
 
+// Audio
+if (article.audio) {
+    mediaHTML += '<div class="media-section"><h4>🎙️ Écouter le reportage</h4>';
+    mediaHTML += `<audio controls style="width: 100%; margin-top: 10px;">
+        <source src="${article.audio}" type="audio/mpeg">
+        Votre navigateur ne supporte pas la lecture audio.
+    </audio></div>`;
+}
     document.getElementById('modal-media').innerHTML = mediaHTML;
     document.getElementById('article-modal').classList.add('active');
     document.body.style.overflow = 'hidden';
