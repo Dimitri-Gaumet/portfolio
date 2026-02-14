@@ -5,7 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Journalistique</title>
+    <title>Dimitri Gaumet - Portfolio Journalistique | Reportages Toulouse & Bourgogne</title>
+    <meta name="description" content="Portfolio de Dimitri Gaumet, étudiant journaliste à Sciences Po Toulouse. Reportages presse écrite, radio, vidéo. Stage en média local.">
+    <meta name="keywords" content="Dimitri Gaumet, journalisme, portfolio, reportage, Sciences Po Toulouse, stage journalisme, Bourgogne, Toulouse">
+    <meta name="author" content="Dimitri Gaumet">
+    
+    <!-- Open Graph pour réseaux sociaux -->
+    <meta property="og:title" content="Dimitri Gaumet - Portfolio Journalistique">
+    <meta property="og:description" content="Étudiant journaliste - Reportages et articles">
+    <meta property="og:url" content="https://dimitri-gaumet.github.io/portfolio/">
+    <meta property="og:type" content="website">
+    
     <style>
         * {
             margin: 0;
@@ -156,6 +166,17 @@
             gap: 25px;
         }
 
+        @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
         .article-card {
             background: white;
             border-radius: 8px;
@@ -164,6 +185,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
             border: 1px solid #f0f0f0;
+            animation: fadeInUp 0.5s ease-out;
         }
 
         .article-card:hover {
@@ -511,10 +533,10 @@
                         Je suis Dimitri Gaumet, étudiant en journalisme en 4ème année à Sciences Po Toulouse.
                     </p>
                     <p>
-J'ai vécu presque toute ma vie en Bourgogne, dans une petite ville située au Nord de Dijon. J'ai fait ma licence dans la cité des ducs et j'ai choisi d'aller à Toulouse pour faire un master de journalisme.
+J'ai vécu presque toute ma vie en Bourgogne, dans une petite ville située au nord de Dijon. J'ai fait ma licence dans la cité des ducs et j'ai choisi d'aller à Toulouse pour faire un master de journalisme.
                         </p>
                     <p>
-Ce qui me plaît dans ce métier, c'est la diversité infinie de sujets à explorer. Nature, politique, monde associatif... Je cherche à traiter toutes les thématiques, chaque sujet est l'occasion de rencontrer quelqu'un d'intéressant. À chaque reportage, j'apprends et j'élargis ma compréhension du monde.
+Ce qui me plaît dans ce métier, c'est la diversité infinie de sujets à explorer. Nature, politique, monde associatif... Je cherche à traiter toutes les thématiques car chaque sujet est l'occasion de rencontrer quelqu'un d'intéressant. À chaque reportage, j'apprends et j'élargis ma compréhension du monde.
                          </p>
                     <p>
 Le terrain reste pour moi l'essence du métier : donner la parole, raconter les histoires d'un territoire, comprendre ce qui s'y joue vraiment. Je recherche donc un stage dans un média local, pour améliorer mes productions et progresser en reportage de proximité.
@@ -535,9 +557,9 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
                 <div class="date">2025 - Présent</div>
                 <p> - Webjournalisme (Animation d'un site sur Wordpress) </p>
                 <p> - Journalisme radio & TV </p>
-                <p>  - Montage audio et vidéo </p>
-                <p>  - Datajournalisme </p>
-                <p>   - Journalisme presse écrite </p>
+                <p> - Montage audio et vidéo </p>
+                <p> - Datajournalisme </p>
+                <p> - Journalisme presse écrite </p>
                 </p>
             </div>
             <div class="experience-item">
@@ -592,7 +614,7 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
                 Intéressé(e) par mon travail ? Contactez-moi !
             </p>
             <div class="contact-links">
-                <a href="mailto:votre.email@example.com" class="contact-link">
+                <a href="mailto:gaumet.dimitri@gmail.com" class="contact-link">
                     ✉️ gaumet.dimitri@gmail.com
                 </a>
                 <a href="https://linkedin.com/in/votre-profil" target="_blank" class="contact-link">
@@ -603,7 +625,7 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
     </div>
 
     <footer>
-        <p>&copy; 2024 - Portfolio Journalistique</p>
+        <p>&copy; 2026 - Portfolio Journalistique</p>
     </footer>
 
     <div id="article-modal" class="modal">
@@ -703,7 +725,7 @@ const articles = [
         category: "Reportage",
         type: "stage",
         date: "juin 2025",
-        description: "Une journée autour de la gérontologie était organisée à Alésia en Bourgogne. L'occasion pour les soignants de partager leur expérience au sein d'un territoire souffrant d'un manque d'infrastuctures et d'une population âgée.",
+        description: "Une journée autour de la gérontologie était organisée à Alésia en Bourgogne. L'occasion pour les soignants de partager leur expérience au sein d'un territoire souffrant d'un manque d'infrastructures et d'une population âgée.",
         fullDescription: "Lors de mon stage, j'ai été envoyé écrire un article sur une réunion de soignants à 20 minutes de mon lieu de travail. J'ai trouvé cet exercice difficile car je manquais de connaissances dans le domaine de la santé. Je devais interviewer des professionnels et leur demander des explications sur de nombreux termes. J'ai apprécié parler de ces soignants déterminés malgré les difficultés que traverse mon département.",
         image: "geriatrie.jpg",
         imageCaption: "L'objectif de la journée était de trouver des pistes pour une meilleure prise en charge des personnes âgées.",
@@ -835,12 +857,14 @@ function displayArticles(filter = 'tous') {
         card.className = 'article-card';
         card.onclick = () => openModal(article.id);
         
-        let imageHTML = '';
-        if (article.image) {
-            imageHTML = `<div class="article-image"><img src="${article.image}" alt="${article.title}"></div>`;
-        } else {
-            imageHTML = `<div class="article-image no-image">📄</div>`;
-        }
+      let imageHTML = '';
+if (article.image) {
+    // Exception pour l'article 11 (affiche verticale du concours d'écriture)
+    let imgStyle = article.id === 11 ? ' style="object-fit: contain; background-color: #f0f0f0;"' : '';
+    imageHTML = `<div class="article-image"><img src="${article.image}" alt="${article.title}"${imgStyle}></div>`;
+} else {
+    imageHTML = `<div class="article-image no-image">📄</div>`;
+}
         
         card.innerHTML = `
             ${imageHTML}
@@ -896,11 +920,10 @@ function filterArticles(type) {
                 captionHTML += `<p class="image-caption-text">${article.imageCaption}</p>`;
             }
           if (article.imageCredit) {
-    if (article.imageLicenseUrl) {
-        captionHTML += `<p class="image-credit-text"><a href="${article.imageLicenseUrl}" target="_blank" style="color: #667eea; text-decoration: none;">${article.imageCredit}</a></p>`;
-    } else {
-        captionHTML += `<p class="image-credit-text">${article.imageCredit}</p>`;
-    }
+   if (article.imageLicenseUrl) {
+    captionHTML += `<p class="image-credit-text"><a href="${article.imageLicenseUrl}" target="_blank" style="color: #667eea; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#764ba2'" onmouseout="this.style.color='#667eea'">${article.imageCredit}</a></p>`;
+} else {
+    captionHTML += `<p class="image-credit-text">${article.imageCredit}</p>`;
 }
             captionHTML += '</div>';
             
