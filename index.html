@@ -617,19 +617,20 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
    <script>
 const articles = [
      {
-        id: 1,
-        title: "L'interdiction des réseaux sociaux aux mineurs de moins de 15 ans vue par les toulousains",
-        category: "Enrobé - Radio",
-        type: "master",
-        date: "Février 2026",
-        description: "Lancement : L'interdiction des réseaux sociaux aux mineurs de moins de 15 ans a été adoptée dans la nuit du 26 au 27 janvier dernier au sein d'une Assemblée presque vide. Si la loi est adoptée par le Sénat, la mesure pourrait entrer en vigueur dès la rentrée 2026.",
-        fullDescription: "Pour cet exercice de journalisme radio, il fallait réaliser un enrobé. Je devais choisir une actualité, interroger des individus sous la forme d'un micro-trottoir et en retirer deux sons similaires ou contradictoires.Il fallait ensuite monter ces deux sons avec mon texte.",
-        image: "pezzin2.jpg",
-        imageCaption: "Pierre Pezzin se présente comme candidat indépendant aux élections municipales 2026 de Toulouse.",
-        imageCredit: "© Dimitri Gaumet",
-        audio: "EnrobeRadio.mp3",
-        ]
-    },
+    id: 1,
+    title: "L'interdiction des réseaux sociaux aux mineurs de moins de 15 ans vue par les toulousains",
+    category: "Enrobé - Radio",
+    type: "master",
+    date: "Février 2026",
+    description: "Lancement : L'interdiction des réseaux sociaux aux mineurs de moins de 15 ans a été adoptée dans la nuit du 26 au 27 janvier dernier au sein d'une Assemblée presque vide. Si la loi est adoptée par le Sénat, la mesure pourrait entrer en vigueur dès la rentrée 2026.",
+    fullDescription: "Pour cet exercice de journalisme radio, il fallait réaliser un enrobé. Je devais choisir une actualité, interroger des individus sous la forme d'un micro-trottoir et en retirer deux sons similaires ou contradictoires. Il fallait ensuite monter ces deux sons avec mon texte.",
+    image: "reseauxsociaux.jpg",  // ← CHANGEZ l'image ici
+    imageCaption: "Les réseaux sociaux font partie du quotidien des jeunes français.",
+    imageCredit: "© « wallpaperpaint1 » par wilgengebroed, CC BY-NC 2.0",
+    imageLicenseUrl: "https://creativecommons.org/licenses/by-nc/2.0/deed.fr",
+    audio: "EnrobeRadio.mp3",
+    files: []
+},
     {
         id: 2,
         title: "Tolosa c'est avant tout une force : interview avec Pierre Pezzin, candidat indépendant aux municipales 2026 à Toulouse",
@@ -646,7 +647,7 @@ const articles = [
         ]
     },
     {
-        id: 2,
+        id: 3,
         title: "À la Cartoucherie, ceux qui vont faire rire vous saluent !",
         category: "Reportage",
         type: "master",
@@ -661,7 +662,7 @@ const articles = [
         ]
     },
     {
-        id: 3,
+        id: 4,
         title: "En Ariège, une union précaire autour du gypaète barbu",
         category: "Reportage",
         type: "master",
@@ -676,7 +677,7 @@ const articles = [
         ]
     },
     {
-        id: 4,
+        id: 5,
         title: "Saouzelong : sous les chantiers, le village",
         category: "Reportage",
         type: "master",
@@ -691,10 +692,10 @@ const articles = [
         ]
     },
       {
-        id: 5,
+        id: 6,
         title: "Viellir, mais accompagné : les soignants en réflexion au MuséoParc Alésia ",
         category: "Reportage",
-        type: "mstage",
+        type: "stage",
         date: "juin 2025",
         description: "Une journée autour de la gérontologie était organisée à Alésia en Bourgogne. L'occasion pour les soignants de partager leur expérience au sein d'un territoire souffrant d'un manque d'infrastuctures et d'une population âgée.",
         fullDescription: "Lors de mon stage, j'ai été envoyé écrire un article sur une réunion de soignants à 20 minutes de mon lieu de travail. J'ai trouvé cet exercice difficile car je manquais de connaissances dans le domaine de la santé. Je devais interviewer des professionnels et leur demander des explications sur de nombreux termes. J'ai apprécié parler de ces soignants déterminés malgré les difficultés que traverse mon département.",
@@ -706,7 +707,7 @@ const articles = [
         ]
     },
     {
-        id: 6,
+        id: 7,
         title: "Le parc Auxois Morvan Aventure dévoile ses nouveautés",
         category: "Reportage",
         type: "stage", 
@@ -721,7 +722,7 @@ const articles = [
         ]
     },
     {
-        id: 7,
+        id: 8,
         title: "Le jardin de l'Escargot errant ouvre ses portes à Thoste",
         type: "stage",
         category: "Reportage",
@@ -736,7 +737,7 @@ const articles = [
         ]
     },
     {
-        id: 8,
+        id: 9,
         title: "Il vend des cartes postales aux couleurs de ses voyages : le nomade du futur fait étape en Côte-d’Or",
         type: "stage",
         category: "Reportage",
@@ -751,7 +752,7 @@ const articles = [
         ]
     },
    {
-        id: 9,
+        id: 10,
         title: "En Roumanie, Călin Georgescu, symbole ou cause d'une démocratie fragilisée ?",
         category: "Reportage",
         type: "personnel",
@@ -766,7 +767,7 @@ const articles = [
         ]
     },
     {
-        id: 10,
+        id: 11,
         title: "La faim des haricots pour l'action solidaire ?",
         category: "Reportage",
         type: "licence",
@@ -858,9 +859,13 @@ function filterArticles(type) {
             if (article.imageCaption) {
                 captionHTML += `<p class="image-caption-text">${article.imageCaption}</p>`;
             }
-            if (article.imageCredit) {
-                captionHTML += `<p class="image-credit-text">${article.imageCredit}</p>`;
-            }
+          if (article.imageCredit) {
+    if (article.imageLicenseUrl) {
+        captionHTML += `<p class="image-credit-text"><a href="${article.imageLicenseUrl}" target="_blank" style="color: #667eea; text-decoration: none;">${article.imageCredit}</a></p>`;
+    } else {
+        captionHTML += `<p class="image-credit-text">${article.imageCredit}</p>`;
+    }
+}
             captionHTML += '</div>';
             
             // Insérer après l'image
