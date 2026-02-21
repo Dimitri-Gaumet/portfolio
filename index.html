@@ -875,10 +875,10 @@ function displayArticles(filter = 'tous') {
         card.className = 'article-card';
         card.onclick = () => openModal(article.id);
         
-      let imageHTML = '';
+     let imageHTML = '';
 if (article.image) {
-    // Exception pour l'article 11 (affiche verticale du concours d'écriture)
-    let imgStyle = article.id === 11 ? ' style="object-fit: contain; background-color: #f0f0f0;"' : '';
+    // Exception pour les articles avec images verticales (affiche concours + post Instagram)
+    let imgStyle = (article.id === 1 || article.id === 12) ? ' style="object-fit: contain; background-color: #f0f0f0;"' : '';
     imageHTML = `<div class="article-image"><img src="${article.image}" alt="${article.title}"${imgStyle}></div>`;
 } else {
     imageHTML = `<div class="article-image no-image">📄</div>`;
