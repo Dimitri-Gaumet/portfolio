@@ -985,18 +985,29 @@ function openModal(id) {
         </video></div>`;
     }
 
-    // Instagram
-    if (article.instagram) {
-        mediaHTML += '<div class="media-section"><h4>📸 Voir sur Instagram</h4>';
-        mediaHTML += `<div style="display: flex; justify-content: center; margin-top: 15px;">
-            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="${article.instagram}" data-instgrm-version="14" style="max-width: 540px; min-width: 326px; width: 100%;"></blockquote>
-        </div></div>`;
-        
-        // Recharger le script Instagram pour afficher le nouveau post
-        if (window.instgrm) {
-            window.instgrm.Embeds.process();
-        }
+   // Instagram
+if (article.instagram) {
+    mediaHTML += '<div class="media-section"><h4>📸 Voir sur Instagram</h4>';
+    
+    // Bouton pour ouvrir directement sur Instagram
+    mediaHTML += `<div style="text-align: center; margin: 15px 0;">
+        <a href="${article.instagram}" target="_blank" class="file-link" style="display: inline-flex; align-items: center; gap: 8px; font-size: 1em;">
+            📱 Ouvrir sur Instagram
+        </a>
+    </div>`;
+    
+    // Embed Instagram (peut ne pas marcher sur mobile)
+    mediaHTML += `<div style="display: flex; justify-content: center; margin-top: 15px;">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="${article.instagram}" data-instgrm-version="14" style="max-width: 540px; min-width: 326px; width: 100%;"></blockquote>
+    </div>`;
+    
+    mediaHTML += '<p style="text-align: center; font-size: 0.85em; color: #999; margin-top: 10px;">Le post peut mettre quelques secondes à charger. Si rien ne s\'affiche, cliquez sur le bouton ci-dessus.</p></div>';
+    
+    // Recharger le script Instagram pour afficher le nouveau post
+    if (window.instgrm) {
+        window.instgrm.Embeds.process();
     }
+}
     
     document.getElementById('modal-media').innerHTML = mediaHTML;
     document.getElementById('article-modal').classList.add('active');
