@@ -15,7 +15,7 @@
     <meta property="og:description" content="Étudiant journaliste - Reportages et articles">
     <meta property="og:url" content="https://dimitri-gaumet.github.io/portfolio/">
     <meta property="og:type" content="website">
-    <script async src="//www.instagram.com/embed.js"></script>
+    <script async src="https://www.instagram.com/embed.js"></script>
     
     <style>
         * {
@@ -561,7 +561,6 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
                 <p> - Montage audio et vidéo </p>
                 <p> - Datajournalisme </p>
                 <p> - Journalisme presse écrite </p>
-                </p>
             </div>
             <div class="experience-item">
     <h3>Licence Information-Communication</h3>
@@ -572,7 +571,6 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
        <p> - Écriture d'articles (revue de presse, reportage, interview...)  </p>
        <p> - Accompagnement de plusieurs étudiants étrangers pour faciliter leur intégration académique et professionnelle  </p> 
        <p> - Création de sites web via Wordpress et Bluegriffon  <p>
-    </p>
 </div>
              <div class="experience-item">
                 <h3>Master Médias & Société </h3>
@@ -581,7 +579,6 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
                 <p> - Méthodes de recherche en sciences de la communication </p>
                 <p> - Création et animation d'un compte X sur l'environnement à Bucarest </p>
                 <p> - Création de plusieurs podcasts </p>
-             </p>
             </div>
 
             <div class="experience-item">
@@ -600,14 +597,12 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
     <h2>Mes Articles</h2>
     
   <div class="filter-buttons">
-    <button class="filter-btn active" onclick="filterArticles('tous')">Tous</button>
-    <button class="filter-btn" onclick="filterArticles('master')">Master</button>
-    <button class="filter-btn" onclick="filterArticles('licence')">Licence</button>
-    <button class="filter-btn" onclick="filterArticles('stage')">Stage</button>
-    <button class="filter-btn" onclick="filterArticles('personnel')">Écriture personnelle</button>
-</div>
-    
-    <div class="portfolio-grid" id="portfolio-grid"></div>
+   <button class="filter-btn active" onclick="filterArticles('tous', this)">Tous</button>
+<button class="filter-btn" onclick="filterArticles('master', this)">Master</button>
+<button class="filter-btn" onclick="filterArticles('licence', this)">Licence</button>
+<button class="filter-btn" onclick="filterArticles('stage', this)">Stage</button>
+<button class="filter-btn" onclick="filterArticles('personnel', this)">Écriture personnelle</button>
+     <div class="portfolio-grid" id="portfolio-grid"></div>
 </section>
         <section id="contact">
             <h2>Contact</h2>
@@ -670,7 +665,7 @@ const articles = [
     category: "Reportage - Vidéo",
     type: "master",
     date: "Mars 2026",
-    description: "À Toulouse, l'entreprise Get out propose à ses clients de participer à des « escape game ». Ces séances se font sous l'oeil attentif d'un « game master ». Mais, c'est que faut-il pour être respecté dans cette profession ?",
+    description: "À Toulouse, l'entreprise Get out propose à ses clients de participer à des « escape game ». Ces séances se font sous l'oeil attentif d'un « game master ». Mais, que faut-il pour exercer ce métier ?",
     fullDescription: "Pour mon cours de travail de l'image, il fallait réaliser un off-itw avec environ 30 secondes de vidéo et 30 secondes d'interview sur un sujet de notre choix. On devait tourner avec des caméra Sony NXCAM et un trépied. C'était difficile de varier les plans ou de prendre en compte tous les paramètres nécessaires à une bonne image (j'ai dû réduire la qualité pour exporter sur le site).",
     image: "Enzo.png",
     imageCaption: "Enzo Combemorel, game master en alternance depuis septembre 2025",
@@ -922,7 +917,7 @@ function displayArticles(filter = 'tous') {
      let imageHTML = '';
 if (article.image) {
     // Exception pour les articles avec images verticales (affiche concours + post Instagram)
-    let imgStyle = (article.id === 1 || article.id === 12) ? ' style="object-fit: contain; background-color: #f0f0f0;"' : '';
+    let imgStyle = (article.id === 1 || article.id === 4 || article.id === 15) ? ' style="object-fit: contain; background-color: #f0f0f0;"' : '';
     imageHTML = `<div class="article-image"><img src="${article.image}" alt="${article.title}"${imgStyle}></div>`;
 } else {
     imageHTML = `<div class="article-image no-image">📄</div>`;
@@ -948,7 +943,10 @@ function filterArticles(type, button) {
         btn.classList.remove('active');
     });
 
-    button.classList.add('active');
+    if (button) {
+        button.classList.add('active');
+    }
+
     displayArticles(type);
 }
 function openModal(id) {
