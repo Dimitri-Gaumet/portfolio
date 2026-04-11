@@ -660,7 +660,7 @@ const articles = [
     imageCaption: "La couverture du magazine",
     imageCredit: "© Lola Sautier",
     files: [
-        { name: "Lire le magazine (PDF)", url: "tapages mag modèle final.pdf" }
+        { name: "Lire le magazine (PDF)", url: "tapages mag modèle final.pdf" },
         { name: "Lire l'article (PDF)", url: "Générations_compressed.pdf" }
     ]
 },
@@ -943,20 +943,14 @@ if (article.image) {
         grid.appendChild(card);
     });
 }
-
-function filterArticles(type) {
-    // Retirer la classe active de tous les boutons
+function filterArticles(type, button) {
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.remove('active');
     });
-    
-    // Ajouter la classe active au bouton cliqué
-    event.target.classList.add('active');
-    
-    // Afficher les articles filtrés
+
+    button.classList.add('active');
     displayArticles(type);
 }
-
 function openModal(id) {
     // Supprimer l'ancienne légende si elle existe
     const oldCaption = document.querySelector('.image-caption-box');
