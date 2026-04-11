@@ -648,8 +648,38 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
 
    <script>
 const articles = [
-   {
+     {
     id: 1,
+    title: "Magazine Tapages : Toulouse, le coeur à la fête ",
+    category: "Magazine - Papier",
+    type: "master",
+    date: "Mars 2026",
+    description: "Pendant une semaine, la classe de M1 du master de journalisme de sciences po Toulouse a produit son magazine sur le thème de la fête.",
+    fullDescription: "Avec la classe, nous avons fait des réunions pour décider du thème et du format, nous sommes allés chacun écrire un ou plusieurs articles et nous avons mis en page le magazine avant de l'imprimer et de le distribuer. J'ai écrit mon article sur la fête au bar à travers plusieurs générations (page 22).",
+    image: "Tapagecouv",
+    imageCaption: "La couverture du magazine",
+    imageCredit: "© Lola Sautier",
+    files: [
+        { name: "Lire le magazine (PDF)", url: "tapages mag modèle final.pdf" }
+        { name: "Lire l'article (PDF)", url: "Générations_compressed.pdf" }
+    ]
+},
+    {
+    id: 2,
+    title: "Off-itw : le métier de game master",
+    category: "Reportage - Vidéo",
+    type: "master",
+    date: "Mars 2026",
+    description: "À Toulouse, l'entreprise Get out propose à ses clients de participer à des « escape game ». Ces séances se font sous l'oeil attentif d'un « game master ». Mais, c'est que faut-il pour être respecté dans cette profession ?",
+    fullDescription: "Pour mon cours de travail de l'image, il fallait réaliser un off-itw avec environ 30 secondes de vidéo et 30 secondes d'interview sur un sujet de notre choix. On devait tourner avec des caméra Sony NXCAM et un trépied. C'était difficile de varier les plans ou de prendre en compte tous les paramètres nécessaires à une bonne image.",
+    image: "",
+    imageCaption: "Enzo Combemorel, game master en alternance depuis septembre 2025",
+    imageCredit: "© Dimitri Gaumet",
+    video : "GameMaster.mp4",
+    files: []
+},
+    {
+    id: 3,
     title: "Bruits de voûte - le quotidien sonore d'un prêtre",
     category: "Tout-sonore - Audio",
     type: "master",
@@ -663,7 +693,7 @@ const articles = [
     files: []
 },
     {
-    id: 2,
+    id: 4,
     title: "L'identité toulousaine: de gauche ou de droite ?",
     category: "Reportage - Vidéo",
     type: "master",
@@ -677,7 +707,7 @@ const articles = [
     files: []
 },
     {
-    id: 3,
+    id: 5,
     title: "L'interdiction des réseaux sociaux aux mineurs de moins de 15 ans vue par les toulousains",
     category: "Enrobé - Radio",
     type: "master",
@@ -692,7 +722,7 @@ const articles = [
     files: []
 },
     {
-        id: 4,
+        id: 6,
         title: "Tolosa c'est avant tout une force : interview avec Pierre Pezzin, candidat indépendant aux municipales 2026 à Toulouse",
         category: "Interview",
         type: "master",
@@ -707,7 +737,7 @@ const articles = [
         ]
     },
     {
-        id: 5,
+        id: 7,
         title: "À la Cartoucherie, ceux qui vont faire rire vous saluent !",
         category: "Reportage",
         type: "master",
@@ -722,7 +752,7 @@ const articles = [
         ]
     },
     {
-        id: 6,
+        id: 8,
         title: "En Ariège, une union précaire autour du gypaète barbu",
         category: "Reportage",
         type: "master",
@@ -737,7 +767,7 @@ const articles = [
         ]
     },
     {
-        id: 7,
+        id: 9,
         title: "Saouzelong : sous les chantiers, le village",
         category: "Reportage",
         type: "master",
@@ -752,7 +782,7 @@ const articles = [
         ]
     },
       {
-        id: 8,
+        id: 10,
         title: "Vieillir, mais accompagné : les soignants en réflexion au MuséoParc Alésia ",
         category: "Reportage",
         type: "stage",
@@ -767,7 +797,7 @@ const articles = [
         ]
     },
     {
-        id: 9,
+        id: 11,
         title: "Le parc Auxois Morvan Aventure dévoile ses nouveautés",
         category: "Reportage",
         type: "stage", 
@@ -782,7 +812,7 @@ const articles = [
         ]
     },
     {
-        id: 10,
+        id: 12,
         title: "Le jardin de l'Escargot errant ouvre ses portes à Thoste",
         type: "stage",
         category: "Reportage",
@@ -797,7 +827,7 @@ const articles = [
         ]
     },
     {
-        id: 11,
+        id: 13,
         title: "Il vend des cartes postales aux couleurs de ses voyages : le nomade du futur fait étape en Côte-d’Or",
         type: "stage",
         category: "Reportage",
@@ -812,7 +842,7 @@ const articles = [
         ]
     },
    {
-        id: 12,
+        id: 14,
         title: "En Roumanie, Călin Georgescu, symbole ou cause d'une démocratie fragilisée ?",
         category: "Reportage",
         type: "personnel",
@@ -827,7 +857,7 @@ const articles = [
         ]
     },
       {
-        id: 13,
+        id: 15,
         title: "Concours d'écriture : scène de rencontre amoureuse",
         category: "texte libre",
         type: "personnel",
@@ -842,7 +872,7 @@ const articles = [
         ]
     },
     {
-        id: 14,
+        id: 16,
         title: "La faim des haricots pour l'action solidaire ?",
         category: "Reportage",
         type: "licence",
@@ -857,7 +887,7 @@ const articles = [
         ]
     },
       {
-        id: 15,
+        id: 17,
         title: "Deux fusillades endeuillent la Californie en moins de 48h",
         category: "Revue de presse",
         type: "licence",
