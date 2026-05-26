@@ -643,8 +643,38 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
 
    <script>
 const articles = [
-     {
+         {
     id: 1,
+    title: "Centenaire, cuisinière et casanière : Germaine a une vie bien singulière",
+    category: "Portrait",
+    type: "stage",
+    date: "Mai 2026",
+    description: "Germaine Desvignes a fêté ses 100 ans en mars 2026. Entourée de sa famille, elle raconte son histoire : la guerre, le handicap, la vie dans un village isolé... À travers un siècle, la vie de Germaine est forgée par l'adversité.",
+    fullDescription: "Un premier article avait été réalisé pour l'anniversaire de cette dame mais mon chef trouvait qu'il était trop superficiel. Il manquait de nombreux détails et informations, alors, il m'a envoyé en faire un autre. J'ai pris beaucoup de plaisir à écrire ce papier car j'ai trouvé cette personne et sa famille très touchants.",
+    image: "Centenaire2.jpg",
+    imageCaption: "Paul Hurand a choisi la Chine du VIIème siècle pour le déroulement de l'histoire de son polar.",
+    imageCredit: "© Dimitri Gaumet",
+    files: [
+      { name: "Lire l'article (PDF)", url: "centenaire.pdf" }
+    ]
+},
+     {
+    id: 2,
+    title: "Le savoir-faire creusotin s'exporte à Saint-Nazaire",
+    category: "Reportage",
+    type: "stage",
+    date: "Mai 2026",
+    description: "L'entreprise Matière du Creusot emploie plus d'une trentaine de personnes dans le domaine de la métallurgie. En ce mois de mai, elle exporte les premières pièces d'un ouvrage d'art gigantesque en direction de Saint-Nazaire.",
+    fullDescription: "Nous avions reçu un communiqué nous indiquant que deux convois excpetionnels allaient partir du Creusot en direction de la Loire-Atlantique. Il fallait que j'aille me renseigner sur le contenu de ces convois pour écire un article orienté économie et industrie. C'était un peu compliqué dans la rédaction du papier car il y avait beaucoup de chiffres et de termes techniques.  ",
+    image: "Matiere2.jpg",
+    imageCaption: "La première pièce de la future porte Joubert est chargée sur le convoi par des ouvriers.",
+    imageCredit: "© Dimitri Gaumet",
+    files: [
+      { name: "Lire l'article (PDF)", url: "Matiere.pdf" }
+    ]
+},
+     {
+    id: 3,
     title: "Passionné de musique et d’histoire, il publie son premier roman chez Flammarion",
     category: "Interview",
     type: "stage",
@@ -659,7 +689,7 @@ const articles = [
     ]
 },
     {
-    id: 2,
+    id: 4,
     title: "Magazine Tapages : Toulouse, le coeur à la fête ",
     category: "Magazine - Papier",
     type: "master",
@@ -675,7 +705,7 @@ const articles = [
     ]
 },
     {
-    id: 3,
+    id: 5,
     title: "Off-itw : le métier de game master",
     category: "Reportage - Vidéo",
     type: "master",
@@ -689,7 +719,7 @@ const articles = [
     files: []
 },
     {
-    id: 4,
+    id: 6,
     title: "Bruits de voûte - le quotidien sonore d'un prêtre",
     category: "Tout-sonore - Audio",
     type: "master",
@@ -703,7 +733,7 @@ const articles = [
     files: []
 },
     {
-    id: 5,
+    id: 7,
     title: "L'identité toulousaine: de gauche ou de droite ?",
     category: "Reportage - Vidéo",
     type: "master",
@@ -717,7 +747,7 @@ const articles = [
     files: []
 },
     {
-    id: 6,
+    id: 8,
     title: "L'interdiction des réseaux sociaux aux mineurs de moins de 15 ans vue par les toulousains",
     category: "Enrobé - Radio",
     type: "master",
@@ -732,7 +762,7 @@ const articles = [
     files: []
 },
     {
-        id: 7,
+        id: 9,
         title: "Tolosa c'est avant tout une force : interview avec Pierre Pezzin, candidat indépendant aux municipales 2026 à Toulouse",
         category: "Interview",
         type: "master",
@@ -747,7 +777,7 @@ const articles = [
         ]
     },
     {
-        id: 8,
+        id: 10,
         title: "À la Cartoucherie, ceux qui vont faire rire vous saluent !",
         category: "Reportage",
         type: "master",
@@ -762,7 +792,7 @@ const articles = [
         ]
     },
     {
-        id: 9,
+        id: 11,
         title: "En Ariège, une union précaire autour du gypaète barbu",
         category: "Reportage",
         type: "master",
@@ -777,7 +807,7 @@ const articles = [
         ]
     },
     {
-        id: 10,
+        id: 12,
         title: "Saouzelong : sous les chantiers, le village",
         category: "Reportage",
         type: "master",
@@ -792,7 +822,7 @@ const articles = [
         ]
     },
       {
-        id: 11,
+        id: 13,
         title: "Vieillir, mais accompagné : les soignants en réflexion au MuséoParc Alésia ",
         category: "Reportage",
         type: "stage",
@@ -807,7 +837,7 @@ const articles = [
         ]
     },
     {
-        id: 12,
+        id: 14,
         title: "Le parc Auxois Morvan Aventure dévoile ses nouveautés",
         category: "Reportage",
         type: "stage", 
@@ -822,7 +852,7 @@ const articles = [
         ]
     },
     {
-        id: 13,
+        id: 15,
         title: "Le jardin de l'Escargot errant ouvre ses portes à Thoste",
         type: "stage",
         category: "Reportage",
@@ -837,7 +867,7 @@ const articles = [
         ]
     },
     {
-        id: 14,
+        id: 16,
         title: "Il vend des cartes postales aux couleurs de ses voyages : le nomade du futur fait étape en Côte-d’Or",
         type: "stage",
         category: "Reportage",
@@ -852,7 +882,7 @@ const articles = [
         ]
     },
    {
-        id: 15,
+        id: 17,
         title: "En Roumanie, Călin Georgescu, symbole ou cause d'une démocratie fragilisée ?",
         category: "Reportage",
         type: "personnel",
@@ -867,7 +897,7 @@ const articles = [
         ]
     },
       {
-        id: 16,
+        id: 18,
         title: "Concours d'écriture : scène de rencontre amoureuse",
         category: "texte libre",
         type: "personnel",
@@ -882,7 +912,7 @@ const articles = [
         ]
     },
     {
-        id: 17,
+        id: 19,
         title: "La faim des haricots pour l'action solidaire ?",
         category: "Reportage",
         type: "licence",
@@ -897,7 +927,7 @@ const articles = [
         ]
     },
       {
-        id: 18,
+        id: 20,
         title: "Deux fusillades endeuillent la Californie en moins de 48h",
         category: "Revue de presse",
         type: "licence",
