@@ -654,7 +654,37 @@ Le terrain reste pour moi l'essence du métier : donner la parole, raconter les 
 
    <script>
 const articles = [
+        {
+    id: 1,
+    title: "« L’esprit d’équipe, c’est ça qui nous sauve » : la restauration scolaire fait dans la débrouille",
+    category: "Reportage",
+    type: "stage",
+    date: "Juin 2026",
+    description: "Le restaurant scolaire du Breuil a connu un incendie dévastateur en janvier. Face à l’urgence, le service de restauration se déroule depuis dans la salle des fêtes du Morambeau. Pour les élèves et le personnel, ce sinistre engendre une adaptation nécessaire mais parfois complexe. Et la situation devrait perdurer encore peut-être un an.",
+    fullDescription: "Mon chef m'a demandé d'aller faire le point sur la cantine du Breuil, une commune proche du Creusot. Je devais me renseignersur l'adaptation des équipes et des associations locales, l'enquête sur l'incendie, ainsi que la remise en service du restaurant scolaire. Le sujet était intéressant et l'équipe du restaurant était très accuillante. Lors de la rédaction, c'était parfois compliqué de parler des difficultés des employés et des enfants sans pour autant charger la mairie qui cherchait à tout prix des solutions.",
+    image: "RestauBreuil.JPG",
+    imageCaption: "L'équipe de restauration avec de gauche à droite : Rachida, Élodie, Sunait, Magali, agentes de service restauration et Sébastien Barnay, chef cuisinier.",
+    imageCredit: "© Dimitri Gaumet",
+    files: [
+      { name: "Lire l'article (PDF)", url: "RestauBreuil.pdf" }
+    ]
+        },
      {
+    id: 2,
+    title: "La vente de légumes prend racine dans le quartier du Tennis",
+    category: "Reportage",
+    type: "stage",
+    date: "Juin 2026",
+    description: "Tous les vendredis, une vente de légumes est organisée par la Régie de territoire Nord Communauté urbaine Creusot Montceau (CUCM) au cœur du quartier du Tennis. Légumes sains et accessibles pour les habitants, tremplin d’insertion pour les travailleurs et agriculture sans pesticidespour la planète : un cercle vertueux qui profite à tous.",
+    fullDescription: "Nous avions remarqué qu'une vente de légumes prenait place chaque semaine, depuis plusieurs années dans la ville du Creusot, mais, nous n'avions jamais réalisé d'articles. J'ai assisté à la vente, j'ai discuté avec les encadrants, les clients et les maraîchers. Mes interlocuteurs étaient sympathiques et j'ai trouvé que le dispositif était une tès bonne idée qui bénéficiait à beaucoup de personnes.",
+    image: "Legumes.JPG",
+    imageCaption: "C'est environ une cinquantaine de personnes qui viennent chaque semaine refaire leur stock de légumes.",
+    imageCredit: "© Dimitri Gaumet",
+    files: [
+      { name: "Lire l'article (PDF)", url: "VenteLegumes.pdf" }
+    ]
+        },
+    {
     id: 3,
     title: "Dans les entrailles du tri : l’association Agire était en visite au centre Tricea",
     category: "Reportage",
@@ -668,8 +698,9 @@ const articles = [
     files: [
       { name: "Lire l'article (PDF)", url: "Tricea.pdf" }
     ]
+     },
          {
-    id: 1,
+    id: 4,
     title: "Centenaire, cuisinière et casanière : Germaine a une vie bien singulière",
     category: "Portrait",
     type: "stage",
@@ -684,7 +715,7 @@ const articles = [
     ]
 },
      {
-    id: 2,
+    id: 5,
     title: "Le savoir-faire creusotin s'exporte à Saint-Nazaire",
     category: "Reportage",
     type: "stage",
@@ -699,7 +730,7 @@ const articles = [
     ]
 },
      {
-    id: 3,
+    id: 6,
     title: "Passionné de musique et d’histoire, il publie son premier roman chez Flammarion",
     category: "Interview",
     type: "stage",
@@ -714,7 +745,7 @@ const articles = [
     ]
 },
     {
-    id: 4,
+    id: 7,
     title: "Magazine Tapages : Toulouse, le coeur à la fête ",
     category: "Magazine - Papier",
     type: "master",
@@ -730,7 +761,7 @@ const articles = [
     ]
 },
     {
-    id: 5,
+    id: 8,
     title: "Off-itw : le métier de game master",
     category: "Reportage - Vidéo",
     type: "master",
@@ -744,7 +775,7 @@ const articles = [
     files: []
 },
     {
-    id: 6,
+    id: 9,
     title: "Bruits de voûte - le quotidien sonore d'un prêtre",
     category: "Tout-sonore - Audio",
     type: "master",
@@ -758,7 +789,7 @@ const articles = [
     files: []
 },
     {
-    id: 7,
+    id: 10,
     title: "L'identité toulousaine: de gauche ou de droite ?",
     category: "Reportage - Vidéo",
     type: "master",
@@ -772,7 +803,7 @@ const articles = [
     files: []
 },
     {
-    id: 8,
+    id: 11,
     title: "L'interdiction des réseaux sociaux aux mineurs de moins de 15 ans vue par les toulousains",
     category: "Enrobé - Radio",
     type: "master",
@@ -787,7 +818,7 @@ const articles = [
     files: []
 },
     {
-        id: 9,
+        id: 12,
         title: "Tolosa c'est avant tout une force : interview avec Pierre Pezzin, candidat indépendant aux municipales 2026 à Toulouse",
         category: "Interview",
         type: "master",
@@ -802,7 +833,7 @@ const articles = [
         ]
     },
     {
-        id: 10,
+        id: 13,
         title: "À la Cartoucherie, ceux qui vont faire rire vous saluent !",
         category: "Reportage",
         type: "master",
@@ -817,7 +848,7 @@ const articles = [
         ]
     },
     {
-        id: 11,
+        id: 14,
         title: "En Ariège, une union précaire autour du gypaète barbu",
         category: "Reportage",
         type: "master",
@@ -832,7 +863,7 @@ const articles = [
         ]
     },
     {
-        id: 12,
+        id: 15,
         title: "Saouzelong : sous les chantiers, le village",
         category: "Reportage",
         type: "master",
@@ -847,7 +878,7 @@ const articles = [
         ]
     },
       {
-        id: 13,
+        id: 16,
         title: "Vieillir, mais accompagné : les soignants en réflexion au MuséoParc Alésia ",
         category: "Reportage",
         type: "stage",
@@ -862,7 +893,7 @@ const articles = [
         ]
     },
     {
-        id: 14,
+        id: 17,
         title: "Le parc Auxois Morvan Aventure dévoile ses nouveautés",
         category: "Reportage",
         type: "stage", 
@@ -877,7 +908,7 @@ const articles = [
         ]
     },
     {
-        id: 15,
+        id: 18,
         title: "Le jardin de l'Escargot errant ouvre ses portes à Thoste",
         type: "stage",
         category: "Reportage",
@@ -892,7 +923,7 @@ const articles = [
         ]
     },
     {
-        id: 16,
+        id: 19,
         title: "Il vend des cartes postales aux couleurs de ses voyages : le nomade du futur fait étape en Côte-d’Or",
         type: "stage",
         category: "Reportage",
@@ -907,7 +938,7 @@ const articles = [
         ]
     },
    {
-        id: 17,
+        id: 20,
         title: "En Roumanie, Călin Georgescu, symbole ou cause d'une démocratie fragilisée ?",
         category: "Reportage",
         type: "personnel",
@@ -922,7 +953,7 @@ const articles = [
         ]
     },
       {
-        id: 18,
+        id: 21,
         title: "Concours d'écriture : scène de rencontre amoureuse",
         category: "texte libre",
         type: "personnel",
@@ -937,7 +968,7 @@ const articles = [
         ]
     },
     {
-        id: 19,
+        id: 22,
         title: "La faim des haricots pour l'action solidaire ?",
         category: "Reportage",
         type: "licence",
@@ -952,7 +983,7 @@ const articles = [
         ]
     },
       {
-        id: 20,
+        id: 23,
         title: "Deux fusillades endeuillent la Californie en moins de 48h",
         category: "Revue de presse",
         type: "licence",
